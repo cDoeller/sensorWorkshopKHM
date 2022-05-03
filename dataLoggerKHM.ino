@@ -62,7 +62,7 @@ char daysOfTheWeek[7][12] = { // 2d Array of char for weekdays
 boolean temperatureSensor = false;
 boolean soundSensor = false;
 boolean gasSensor = false;
-boolean lightSensor = true;
+boolean lightSensor = false;
 
 //                                 *** CHECK YOUR PINS
 // Temperature
