@@ -58,23 +58,22 @@ char daysOfTheWeek[7][12] = { // 2d Array of char for weekdays
   "Saturday"
 };
 
-//                                 *** CHOOSE YOUR SENSOR
+//                                *** CHOOSE YOUR SENSOR
 boolean temperatureSensor = false;
 boolean soundSensor = false;
 boolean gasSensor = false;
 boolean lightSensor = false;
 
-//                                 *** CHECK YOUR PINS
+//                                *** CHECK YOUR PINS
 // Temperature
 dht DHT;
-#define DHT22_PIN    2
-//#define DHT11_PIN    2
+#define DHT11_PIN    2
 // Light
-#define lightSensorPin    A0
+#define lightSensorPin    A2
 // Sound
 #define soundSensorPin    A1
 // Gas
-#define gasSensorPin    A2
+#define gasSensorPin    A0
 
 // SWITCH
 const int sw = 6;
@@ -262,7 +261,6 @@ String getSoundSensorData () {
 // Get GAS Sensor Data
 String getGasSensorData () {
   int _gasReading = analogRead (gasSensorPin);
-  //String _gasData = ("gasData=" + String(_gasReading));
   String _gasData = ("," + String(_gasReading));
   return _gasData;
 }
