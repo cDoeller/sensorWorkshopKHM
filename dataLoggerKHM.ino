@@ -58,12 +58,13 @@ char daysOfTheWeek[7][12] = { // 2d Array of char for weekdays
   "Saturday"
 };
 
-// *** CHOOSE YOUR SENSOR
+//                                 *** CHOOSE YOUR SENSOR
 boolean temperatureSensor = false;
 boolean soundSensor = false;
 boolean gasSensor = false;
 boolean lightSensor = true;
 
+//                                 *** CHECK YOUR PINS
 // Temperature
 dht DHT;
 #define DHT11_PIN    2
