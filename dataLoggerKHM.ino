@@ -67,7 +67,8 @@ boolean lightSensor = false;
 //                                 *** CHECK YOUR PINS
 // Temperature
 dht DHT;
-#define DHT11_PIN    2
+#define DHT22_PIN    2
+//#define DHT11_PIN    2
 // Light
 #define lightSensorPin    A0
 // Sound
