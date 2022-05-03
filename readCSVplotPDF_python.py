@@ -4,26 +4,17 @@
 Created on Thu Apr 28 10:12:22 2022
 
 @author: christiandoeller
-
-Load DataLogger "xxx.csv" file, plot / display sensor data and save plot to local machine
-
-Note:
---> change file name - variable "csvName"
---> specify location of .csv file on your machine
---> specify location where you want to save the .pdf plot file
-
 """
 
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
-# **** make changes here 
 # import csv file
-csvName = 'LOG11'
-data = pd.read_csv (r'/*your/*file/*path/' + csvName + '.csv')
-# file name for resulting plot image
-fileName = '_plot.png'
+csvName = 'T010'
+data = pd.read_csv (r'/Users/christiandoeller/Dropbox/Projekte/2022_KHM_Phytotron/DataLogger/dataTesting/allSensors/' + csvName + '.csv')
+# file name for plot image
+fileName = 'plot'
 # variable for width of plot
 figWidth = 50
 
@@ -35,15 +26,15 @@ sensorSpecs = data.columns[1]
 # analyze the sensor settings - delay time and what kind of sensor
 # delaytime - temp - gas - sound - light
 specsList = list(sensorSpecs.split("-"))
-delayTime = specsList[0]
+delayTime = int(specsList[0])
 sensorType = ''
-if (specsList[1]): 
+if (specsList[1]=='1'): 
     sensorType = 'temperature'
-if (specsList[2]):
+if (specsList[2]=='1'):
     sensorType = 'airQuality'
-if (specsList[3]):  
+if (specsList[3]=='1'):  
     sensorType = 'sound'    
-if (specsList[4]):
+if (specsList[4]=='1'):
     sensorType = 'light'
 
 # make data frame with only time and sensor values
@@ -80,10 +71,8 @@ plt.plot(df['datetime'],df[sensorType])
 # set the title with delay time information
 plt.title(csvName + ".csv, " + sensorType + " sensor," + " delay time " + delayTime + " milliseconds")
 
-# **** make changes here 
-# include specific path where you want the file to be saved at
 # save plot as image with little whitespace
-plt.savefig(csvName + '.pdf', bbox_inches='tight')
+plt.savefig(fileName + '_' + csvName + '.pdf', bbox_inches='tight')
 
 # show the plot
 plt.show()
